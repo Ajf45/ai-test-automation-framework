@@ -1,0 +1,18 @@
+class BasePage:
+    def __init__(self, page):
+        self.page = page
+
+    def navigate(self, url):
+        self.page.goto(url)
+
+    def click(self, selector):
+        self.page.wait_for_selector(selector)
+        self.page.click(selector)
+
+    def fill(self, selector, text):
+        self.page.wait_for_selector(selector)
+        self.page.fill(selector, text)
+
+    def get_text(self, selector):
+        self.page.wait_for_selector(selector)
+        return self.page.text_content(selector)
